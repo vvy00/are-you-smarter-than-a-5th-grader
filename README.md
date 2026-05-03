@@ -5,12 +5,39 @@ This is a quiz game where you can find out if you are smarter than a 5th grader.
 <img width="1278" height="689" alt="ayst5thg3" src="https://github.com/user-attachments/assets/a7dcc9e6-7873-4fe5-8e78-0f9d71471612" />
 
 ## Features
-- Levels (easy, medium, hard)
-- Categories/subjects (math, english, history, geography, science, animals, space, health)
-- You can pick up TO 3 categories/subjects to get quizzed on
+- Screens
+ - Home
+ - Difficulty Selection
+ - Category/Subject Selection
+ - Quiz Gameplay
+ - Results Section
+
+- Categories/Subjects
+ - Math
+ - English
+ - Science
+ - History
+ - Geography
+ - Animals
+ - Space
+ - Health
+
+- Difficulty Levels
+ - Easy
+ - Medium
+ - Hard
+
+## How to Play
+1. Click start
+2. Choose a difficulty level
+3. Pick up to 3 categories
+4. Answer all questions
+5. View the results
 
 ## Future Improvements
+- Sound effects
 - Add more grade levels
+- Load questions from an API
 
 ## AI Usage
 - Used ChatGPT for debugging and cleaning up code
