@@ -9,27 +9,70 @@
 <body>
 <div class="game-container">
 
-  <!-- TITLE SCREEN -->
-  <div class="screen active" id="title-screen">
-    <div class="title-screen">
+  <!-- ═══════════ SCREEN 1: HOME ═══════════ -->
+  <div class="screen active" id="home-screen">
+    <div class="center-screen">
       <div class="title-banner">
-        <div class="custom-icon-area">
+        <div class="logo-area">
           <img src="https://upload.wikimedia.org/wikipedia/en/5/50/AYSTA5G2019Logo.png" alt="logo" />
         </div>
-
         <h1>Are You Smarter Than a 5th Grader?</h1>
-        <p class="subtitle">10 questions. Lets find out.</p>
+        <p class="subtitle">Let's find out.</p>
       </div>
-
-      <p class="section-label">Pick your categories (choose up to 3)</p>
-      <div class="category-grid" id="category-grid"></div>
-      <button class="start-btn" id="start-btn" disabled onclick="startGame()">Start Quiz!</button>
+      <button class="big-btn" onclick="goTo('difficulty-screen')">Start</button>
     </div>
   </div>
 
-  <!-- QUIZ SCREEN -->
+  <!-- ═══════════ SCREEN 2: DIFFICULTY ═══════════ -->
+  <div class="screen" id="difficulty-screen">
+    <div class="center-screen">
+      <p class="screen-title">Choose Your Difficulty</p>
+      <div class="diff-list">
+        <button class="diff-card" data-diff="easy" onclick="selectDifficulty('easy', this)">
+          <span class="diff-icon">🟢</span>
+          <div>
+            <div class="diff-label">Easy</div>
+            <div class="diff-sub">5 questions · Basic level</div>
+          </div>
+        </button>
+        <button class="diff-card" data-diff="medium" onclick="selectDifficulty('medium', this)">
+          <span class="diff-icon">🟡</span>
+          <div>
+            <div class="diff-label">Medium</div>
+            <div class="diff-sub">10 questions · Mixed level</div>
+          </div>
+        </button>
+        <button class="diff-card" data-diff="hard" onclick="selectDifficulty('hard', this)">
+          <span class="diff-icon">🔴</span>
+          <div>
+            <div class="diff-label">Hard</div>
+            <div class="diff-sub">14 questions · All levels</div>
+          </div>
+        </button>
+      </div>
+      <div class="nav-row">
+        <button class="ghost-btn" onclick="fullReset()">← Back</button>
+        <button class="big-btn" id="diff-next-btn" disabled onclick="goTo('category-screen')">Next →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ SCREEN 3: CATEGORIES ═══════════ -->
+  <div class="screen" id="category-screen">
+    <div class="center-screen">
+      <p class="screen-title">Pick Up To 3 Categories</p>
+      <div class="category-grid" id="category-grid"></div>
+      <div class="nav-row">
+        <button class="ghost-btn" onclick="goTo('difficulty-screen')">← Back</button>
+        <button class="big-btn" id="cat-next-btn" disabled onclick="startGame()">Let's Go! →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ SCREEN 4: QUIZ ═══════════ -->
   <div class="screen" id="quiz-screen">
     <div class="quiz-header">
+      <button class="ghost-btn small" onclick="confirmBack()">← Quit</button>
       <span class="category-pill" id="current-category-pill"></span>
       <div class="score-ticker">Score: <span id="live-score">0</span></div>
     </div>
@@ -42,14 +85,14 @@
     </div>
     <div class="answers-grid" id="answers-grid"></div>
     <div class="feedback-bar" id="feedback-bar"></div>
-    <div style="display:flex;justify-content:flex-end;">
-      <button class="next-btn" id="next-btn" onclick="nextQuestion()">Next →</button>
+    <div style="display:flex; justify-content:flex-end;">
+      <button class="big-btn" id="next-btn" style="display:none;" onclick="nextQuestion()">Next →</button>
     </div>
   </div>
 
-  <!-- RESULT SCREEN -->
+  <!-- ═══════════ SCREEN 5: RESULTS ═══════════ -->
   <div class="screen" id="result-screen">
-    <div class="result-screen">
+    <div class="center-screen">
       <div class="verdict-card">
         <div class="verdict-icon" id="verdict-icon"></div>
         <h2 class="verdict-title" id="verdict-title"></h2>
@@ -64,7 +107,22 @@
           <div class="stat-item"><strong id="stat-wrong"></strong>Wrong</div>
         </div>
       </div>
-      <button class="play-again-btn" onclick="resetGame()">Play Again!</button>
+      <div class="nav-row" style="justify-content:center;">
+        <button class="ghost-btn" onclick="fullReset()">Home</button>
+        <button class="big-btn" onclick="startGame()">🔄 Play Again</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ QUIT MODAL ═══════════ -->
+  <div class="modal-overlay" id="modal-overlay" style="display:none;">
+    <div class="modal-box">
+      <p class="modal-title">Quit this round?</p>
+      <p class="modal-sub">Your progress will be lost.</p>
+      <div class="modal-btns">
+        <button class="ghost-btn" onclick="closeModal()">Keep Playing</button>
+        <button class="danger-btn" onclick="quitGame()">Yes, Quit</button>
+      </div>
     </div>
   </div>
 
