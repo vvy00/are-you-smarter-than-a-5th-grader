@@ -1,6 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Are You Smarter Than a 5th Grader?</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="game-container">
+
+  <!-- TITLE SCREEN -->
+  <div class="screen active" id="title-screen">
+    <div class="title-screen">
+      <div class="title-banner">
+        <div class="custom-icon-area">
+          <img src="https://upload.wikimedia.org/wikipedia/en/5/50/AYSTA5G2019Logo.png" alt="logo" />
+        </div>
+
+        <h1>Are You Smarter Than a 5th Grader?</h1>
+        <p class="subtitle">10 questions. Lets find out.</p>
+      </div>
+
+      <p class="section-label">Pick your categories (choose up to 3)</p>
+      <div class="category-grid" id="category-grid"></div>
+      <button class="start-btn" id="start-btn" disabled onclick="startGame()">Start Quiz!</button>
+    </div>
+  </div>
+
+  <!-- QUIZ SCREEN -->
+  <div class="screen" id="quiz-screen">
+    <div class="quiz-header">
+      <span class="category-pill" id="current-category-pill"></span>
+      <div class="score-ticker">Score: <span id="live-score">0</span></div>
+    </div>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
+    </div>
+    <div class="question-card">
+      <div class="question-num" id="question-num"></div>
+      <div class="question-text" id="question-text"></div>
+    </div>
+    <div class="answers-grid" id="answers-grid"></div>
+    <div class="feedback-bar" id="feedback-bar"></div>
+    <div style="display:flex;justify-content:flex-end;">
+      <button class="next-btn" id="next-btn" onclick="nextQuestion()">Next →</button>
+    </div>
+  </div>
+
+  <!-- RESULT SCREEN -->
+  <div class="screen" id="result-screen">
+    <div class="result-screen">
+      <div class="verdict-card">
+        <div class="verdict-icon" id="verdict-icon"></div>
+        <h2 class="verdict-title" id="verdict-title"></h2>
+        <p class="verdict-sub" id="verdict-sub"></p>
+        <div class="score-display">
+          <div class="score-num" id="final-score-num"></div>
+          <div class="score-label">Final Score</div>
+        </div>
+        <div class="stats-row">
+          <div class="stat-item"><strong id="stat-pct"></strong>Accuracy</div>
+          <div class="stat-item"><strong id="stat-correct"></strong>Correct</div>
+          <div class="stat-item"><strong id="stat-wrong"></strong>Wrong</div>
+        </div>
+      </div>
+      <button class="play-again-btn" onclick="resetGame()">Play Again!</button>
+    </div>
+  </div>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
