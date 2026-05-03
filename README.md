@@ -9,5 +9,8 @@ This is a quiz game where you can find out if you are smarter than a 5th grader.
 - Categories/subjects (math, english, history, geography, science, animals, space, health)
 - You can pick up TO 3 categories/subjects to get quizzed on
 
+## Future Improvements
+- Add more grade levels
+
 ## AI Usage
 - Used ChatGPT for debugging and cleaning up code
