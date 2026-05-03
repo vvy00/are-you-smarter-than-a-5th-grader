@@ -6,26 +6,26 @@ This is a quiz game where you can find out if you are smarter than a 5th grader.
 
 ## Features
 - Screens
- - Home
- - Difficulty Selection
- - Category/Subject Selection
- - Quiz Gameplay
- - Results Section
+  - Home
+  - Difficulty Selection
+  - Category/Subject Selection
+  - Quiz Gameplay
+  - Results Section
 
 - Categories/Subjects
- - Math
- - English
- - Science
- - History
- - Geography
- - Animals
- - Space
- - Health
+  - Math
+  - English
+  - Science
+  - History
+  - Geography
+  - Animals
+  - Space
+  - Health
 
 - Difficulty Levels
- - Easy
- - Medium
- - Hard
+  - Easy
+  - Medium
+  - Hard
 
 ## How to Play
 1. Click start
